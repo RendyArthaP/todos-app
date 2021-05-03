@@ -26,11 +26,9 @@ const Register = () => {
     if(e.target.value === "") {
       alert("Please input your data")
     } else if(registerUser.password !== registerUser.password_confirmation) {
-      setRegisterUser("")
       alert('Your password not match')
     } else {
       dispatch(registerAction(e, registerUser, history))
-      setRegisterUser("")
     }
   }
 
@@ -41,7 +39,7 @@ const Register = () => {
       <h1 className="text-center font-bold text-xl">
         Register
       </h1>
-      <form>
+      <form onSubmit={handleFormRegister}>
         <div>
           <div className="py-2">
             <label>
@@ -94,8 +92,7 @@ const Register = () => {
           <div className="flex flex-col items-center">
             <button 
               className="w-20 bg-black text-white py-1 rounded-md my-2 focus:outline-none"
-              type="button"
-              onClick={handleFormRegister}
+              type="submit"
             >
               Submit
             </button>

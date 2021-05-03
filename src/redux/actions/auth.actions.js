@@ -53,19 +53,24 @@ export const registerAction = (e, data, history) => (dispatch) => {
   
 }
 
-export const loginAction = (e, data, history) => (dispatch) => {
+export const loginAction = (e, data, history, setFail) => (dispatch) => {
   e.preventDefault();
   dispatch(authRequest())
 
   return axios
     .post(process.env.REACT_APP_LOGIN, data)
     .then(result => {
-      if(result.data.token !== undefined) {
-        localStorage.token = result.data.token
-        localStorage.payload = JSON.stringify(result.data.data);
-        dispatch(loginSuccess(result.data.token))
+      console.log(result)
+      if(result.data.auth_token !== undefined) {
+        localStorage.token = result.data.auth_token
+        dispatch(loginSuccess(result.data.auth_token))
 
         history.push('/home')
+      } else {
+        setFail({
+          result: false
+        })
+        dispatch(authFailed("Invalid"))
       }
     })
     .catch(error => dispatch(authFailed(error)))
