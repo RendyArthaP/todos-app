@@ -64,7 +64,7 @@ export const loginAction = (e, data, history, setFail) => (dispatch) => {
       if(result.data.auth_token !== undefined) {
         localStorage.token = result.data.auth_token
         dispatch(loginSuccess(result.data.auth_token))
-
+        
         history.push('/home')
       } else {
         setFail({

@@ -25,14 +25,28 @@ const Login = () => {
 
   const handleFormLogin = (e) => {
     e.preventDefault();
-    // console.log(loginUser)
-    dispatch(loginAction(e, loginUser, history, setFail))
+    if(loginUser.email === "" || loginUser.password === "") {
+      alert('Please input your data')
+    } else {
+      dispatch(loginAction(e, loginUser, history, setFail))
+    }
   }
+
   return (
     <div className="flex flex-col p-4 w-full max-w-md m-auto h-screen justify-center">
       <h1 className="text-center font-bold text-xl">
         Login
       </h1>
+      {fail.result === false 
+        ? 
+          <div>
+            <h1 className="text-red-500 text-center text-base">
+              Your email or password are wrong.
+            </h1>
+          </div>
+        :
+          null
+      }
       <form>
         <div>
           <div className="py-2">
