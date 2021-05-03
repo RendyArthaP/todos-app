@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { registerAction } from '../redux/actions/auth.actions';
-import { useSelector, useDispatch } from 'react-redux'; 
+import { useDispatch } from 'react-redux'; 
 
 const Register = () => {
-  const registAction = useSelector(state => state.handleAuth)
+  // const registAction = useSelector(state => state.handleAuth)
   const dispatch = useDispatch();
   const history = useHistory();
   const [registerUser, setRegisterUser] = useState({

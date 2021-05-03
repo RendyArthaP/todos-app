@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 
 function App() {
   const isLogin = useSelector((state) => state.handleAuth.isLogged);
+  console.log(isLogin)
   return (
     <Router>
       <Switch>

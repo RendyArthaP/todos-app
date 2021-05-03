@@ -60,12 +60,11 @@ export const loginAction = (e, data, history, setFail) => (dispatch) => {
   return axios
     .post(process.env.REACT_APP_LOGIN, data)
     .then(result => {
-      console.log(result)
       if(result.data.auth_token !== undefined) {
         localStorage.token = result.data.auth_token
         dispatch(loginSuccess(result.data.auth_token))
         
-        history.push('/home')
+        history.push('/home');
       } else {
         setFail({
           result: false
