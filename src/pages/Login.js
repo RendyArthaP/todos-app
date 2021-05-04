@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { loginAction } from '../redux/actions/auth.actions';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const history = useHistory()
   const dispatch = useDispatch()
-  const dataUserLogin = useSelector((state) => state.handleAuth)
+  // const dataUserLogin = useSelector((state) => state.handleAuth)
   
   const [loginUser, setLoginUser] = useState({
     email: "",

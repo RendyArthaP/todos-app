@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { getItems } from '../redux/actions/items.actions';
 import ListItems from '../components/ListItems';
+import TaskItems from './modal/TaskItems';
 
-const ListTodos = ({colors, todo, index, handleModalTask}) => {
+const ListTodos = ({colors, todo, index}) => {
   const dispatch = useDispatch()
-  const dataItems = useSelector((state) => state)
+  // const dataItems = useSelector((state) => state)
+  const [modalTask, setModalTask] = useState(false)
+
+  const handleModalTask = () => {
+    setModalTask(!modalTask)
+    console.log(todo)
+  }
 
   const handleErrorTodo = () => {
     if(todo.description === null) {
@@ -63,6 +70,12 @@ const ListTodos = ({colors, todo, index, handleModalTask}) => {
             </div>
           </div>
         </div>
+        {modalTask && (
+          <TaskItems 
+            modalTask = {modalTask}
+            handleModalTask = {handleModalTask}
+          />
+        )}
     </>
   )
 }

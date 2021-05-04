@@ -3,18 +3,12 @@ import Navbar from '../components/Navbar';
 import { getTodos } from '../redux/actions/todos.actions';
 import { useSelector, useDispatch } from 'react-redux';
 import ListTodos from '../components/ListTodos';
-import TaskItems from '../components/modal/TaskItems';
 
 const Home = () => {
   const dispatch = useDispatch()
   const todos = useSelector((state) => state.handleTodos.data)
-  const [modalTask, setModalTask] = useState(false)
 
-  const handleModalTask = () => {
-    setModalTask(!modalTask)
-  }
-
-  const [colors, setColors] = useState([
+  const [colors] = useState([
     {
       id:0,
       borderColors: "1px solid #EB2F96",
@@ -65,19 +59,12 @@ const Home = () => {
                   colors = {colors}
                   index = {index}
                   key = {todo.id}
-                  handleModalTask = {handleModalTask}
                 />
               )
             })}
           </div>
         </div>
       </div>
-      {modalTask && (
-        <TaskItems 
-          modalTask = {modalTask}
-          handleModalTask = {handleModalTask}
-        />
-      )}
     </>
   )
 }
