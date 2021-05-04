@@ -7,7 +7,7 @@ const Login = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const dataUserLogin = useSelector((state) => state.handleAuth)
-  console.log(dataUserLogin)
+  
   const [loginUser, setLoginUser] = useState({
     email: "",
     password: ""

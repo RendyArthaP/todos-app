@@ -47,7 +47,7 @@ export const registerAction = (e, data, history) => (dispatch) => {
     .post(process.env.REACT_APP_REGISTER, data)
     .then(result => {
       dispatch(registerSuccess(result.data))
-      history.push('/')
+      history.push('/login')
     })
     .catch(error => dispatch(authFailed(error)))
   
@@ -63,7 +63,7 @@ export const loginAction = (e, data, history, setFail) => (dispatch) => {
       if(result.data.auth_token !== undefined) {
         localStorage.token = result.data.auth_token
         dispatch(loginSuccess(result.data.auth_token))
-        
+
         history.push('/home');
       } else {
         setFail({

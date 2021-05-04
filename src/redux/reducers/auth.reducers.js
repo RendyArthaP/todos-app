@@ -6,9 +6,9 @@ import {
   LOGOUT
 } from '../actions/auth.actions.js';
 
-const token = localStorage.token
+const token = localStorage.getItem("token")
 
-const initialState = (token !== undefined && token !== null) 
+const initialState = !token 
   ? 
     {
       isLogged: false,

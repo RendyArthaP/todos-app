@@ -12,13 +12,16 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          {isLogin ? <Login /> : <Redirect to="/"/>}
+          {isLogin ? <Redirect to="/home" /> : <Redirect to="/login"/>}
         </Route>
         <Route path="/register">
-          {isLogin ? <Register /> : <Redirect to="/"/>}
+          <Register />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/home">
-          {!isLogin ? <Home /> : <Redirect to="/"/>}
+          {!isLogin ? <Redirect to="/login" /> : <Home />}
         </Route>
       </Switch>
     </Router>

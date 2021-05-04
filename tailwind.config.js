@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    fontFamily: {
+      rubik: ['Rubik', 'sans-serif']
+    },
     backgroundColor: theme => ({
       'black': "#2F3136",
       'pink': "#FFF9FB",
