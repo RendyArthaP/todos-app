@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch} from 'react-redux';
 import { getItems } from '../redux/actions/items.actions';
+import ListItems from '../components/ListItems';
 
-const ListTodos = ({colors, todo, index}) => {
+const ListTodos = ({colors, todo, index, handleModalTask}) => {
   const dispatch = useDispatch()
   const dataItems = useSelector((state) => state)
 
@@ -23,7 +24,7 @@ const ListTodos = ({colors, todo, index}) => {
   return (
     <>
         <div 
-          className="rounded-lg w-full h-64 my-4 p-3"
+          className="rounded-lg w-full h-auto my-4 p-3 lg:w-64 lg:mr-8"
           style={{
             border: colors[index].borderColors, 
             backgroundColor: colors[index].backgroundColors
@@ -43,12 +44,16 @@ const ListTodos = ({colors, todo, index}) => {
                 </h1>
               </div>
               <span 
-                className="font-rubik my-1 text-xs font-medium text-black"
+                className="font-rubik mt-2 text-xs font-medium text-black"
               >
                 {handleErrorTodo()}
               </span>
             </div>
-            <div className="flex flex-row mt-40">
+            <ListItems />
+            <div 
+              className="flex flex-row mt-40"
+              onClick={handleModalTask}
+            >
               <div className="border-2 border-black rounded-full w-5 h-5 flex">
                 <span className="mx-auto -mt-2 font-medium text-xl ">
                   +
