@@ -99,9 +99,13 @@ export const deleteItemsError = (error) => {
 export const getItems = (todo_id) => {
   return function(dispatch) {
     dispatch(getItemsRequest())
-
+    const token = localStorage.token
     axios
-      .get(`${process.env.REACT_APP_ITEMS}/todos/${todo_id}/items`)
+      .get(`${process.env.REACT_APP_ITEMS}/todos/${todo_id}/items`, {
+        headers: {
+          Authorization: 'Bearer' + token
+        }
+      })
       .then((result) => dispatch(getItemsSuccess(result.data)))
       .catch((error) => dispatch(getItemsError(error)))
   }

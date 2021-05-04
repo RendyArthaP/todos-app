@@ -2,9 +2,9 @@ import React from 'react'
 
 const TaskItems = ({handleModalTask}) => {
   return (
-    <div className="">
-      <div className="hidden md:flex w-screen h-screen bg-black fixed top-0 left-0 opacity-20"></div>
-        <div className="bg-white mx-auto z-20 top-0 left-0 fixed w-screen h-screen md:flex md:max-w-lg md:max-h-80 md:items-center">
+    <div className="fixed w-full h-full top-0 left-0 flex items-center justify-center border">
+      <div className="hidden md:flex w-screen h-screen bg-black absolute top-0 left-0 opacity-20 z-10"></div>
+        <div className="bg-white w-full h-full md:max-w-md md:h-64 mx-auto rounded shadow-lg z-50 overflow-y-auto">
           <div className="p-4 w-full md:p-6">
             <h1 className="font-rubik font-bold text-base">
               Create Task
