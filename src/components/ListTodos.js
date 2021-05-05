@@ -8,6 +8,19 @@ const ListTodos = ({colors, todo, index}) => {
   const dispatch = useDispatch()
   // const dataItems = useSelector((state) => state)
   const [modalTask, setModalTask] = useState(false)
+  const [addTask, setAddTask] = useState({
+    taskName: "",
+    percentage: ""
+  })
+  const [listTask, setListTask] = useState([])
+  const handleAddTask = () => {
+    setListTask([...listTask, addTask])
+    setAddTask({
+      taskName: "",
+      percentage: ""
+    })
+    setModalTask(false)
+  }
 
   const handleModalTask = () => {
     setModalTask(!modalTask)
@@ -72,8 +85,12 @@ const ListTodos = ({colors, todo, index}) => {
       </div>
       {modalTask && (
         <TaskItems 
-          modalTask = {modalTask}
-          handleModalTask = {handleModalTask}
+          setModalTask = {setModalTask}
+          handleAddTask = {handleAddTask}
+          addTask = {addTask}
+          setAddTask = {setAddTask}
+          listTask = {listTask}
+          setListTask = {setListTask}
         />
       )}
     </>
