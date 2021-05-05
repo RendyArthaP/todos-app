@@ -20,14 +20,25 @@ const ListItems = ({listTask}) => {
               <h1 className="font-rubik font-medium text-sm">
                 {task.taskName}
               </h1>
-              <div className="bg-progress rounded w-24 mt-10 h-2">
-                <div className={task.percentage == 100 ? 'bg-progressSuccess h-2 rounded flex' : 'bg-daybreak-blue h-2 rounded flex'}
+              <div className="bg-progress rounded w-24 mt-12 h-2">
+                <div className={task.percentage === '100' ? 'bg-progressSuccess h-2 rounded flex' : 'bg-daybreak-blue h-2 rounded flex'}
                   style={{
                     width: `${task.percentage}%`
                   }}
                 >
                   <span className="text-xs font-rubik font-normal ml-28 -mt-1">
-                    {task.percentage}%
+                    {task.percentage === '100' 
+                      ? 
+                        <div className="rounded-full bg-progressSuccess w-4 h-4 flex">
+                          <span className="text-white m-auto">
+                            ✓
+                          </span>
+                        </div>
+                      :
+                        <>
+                          {task.percentage}%
+                        </>
+                    }
                   </span>
                 </div>
               </div>
