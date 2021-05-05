@@ -14,12 +14,24 @@ const ListTodos = ({colors, todo, index}) => {
   })
   const [listTask, setListTask] = useState([])
   const handleAddTask = () => {
-    setListTask([...listTask, addTask])
-    setAddTask({
-      taskName: "",
-      percentage: ""
-    })
-    setModalTask(false)
+    if(addTask.taskName === "") {
+      alert('Please input your name')
+      setAddTask({
+        percentage: ""
+      })
+    } else if(addTask.percentage === "") {
+      alert('Please input your percentage')
+      setAddTask({
+        taskName: "",
+      })
+    } else {
+      setListTask([...listTask, addTask])
+      setAddTask({
+        taskName: "",
+        percentage: ""
+      })
+      setModalTask(false)
+    }
   }
   
   const handleModalTask = () => {
@@ -44,13 +56,13 @@ const ListTodos = ({colors, todo, index}) => {
   return (
     <>
       <div 
-        className="rounded-lg w-full h-64 my-4 p-3 lg:w-64 lg:mr-8"
+        className="rounded-lg w-full h-auto my-4 p-3 flex flex-col lg:w-64 lg:mr-8"
         style={{
           border: colors[index].borderColors, 
           backgroundColor: colors[index].backgroundColors
         }}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-between h-full">
           <div className="flex flex-col">
             <div 
               className="w-24 rounded text-center"
@@ -69,9 +81,7 @@ const ListTodos = ({colors, todo, index}) => {
               {handleErrorTodo()}
             </span>
           </div>
-          <div className="h-40 overflow-hidden overflow-y-scroll">
-            <ListItems listTask = {listTask}/>
-          </div>
+          <ListItems listTask = {listTask}/>
           <div 
             className="flex flex-row mt-2.5 cursor-pointer w-24"
             onClick={handleModalTask}

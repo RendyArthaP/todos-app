@@ -28,6 +28,7 @@ const TaskItems = ({setModalTask, handleAddTask, addTask, setAddTask}) => {
                 className="mt-1 w-full h-8 border border-gray rounded p-1 focus:outline-none font-openSans font-normal text-sm"
                 value={addTask.taskName}
                 onChange={handleChange}
+                type="text"
                 name="taskName"
               />
             </div>
@@ -40,6 +41,7 @@ const TaskItems = ({setModalTask, handleAddTask, addTask, setAddTask}) => {
                 value={addTask.percentage}
                 onChange={handleChange}
                 name="percentage"
+                type="number"
               />
             </div>
             <div className="flex flex-row justify-between mt-4">

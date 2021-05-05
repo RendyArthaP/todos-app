@@ -30,7 +30,8 @@ module.exports = {
       'purple': "#7B61FF",
       'blue': "#2F54EB",
       'green': "#52C41A",
-      'gray': "#262626"
+      'gray': "#262626",
+      'grey': "#E4E4E8",
     },
     borderColor: {
       'black': "#2F3136",
