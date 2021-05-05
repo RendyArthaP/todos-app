@@ -15,6 +15,8 @@ module.exports = {
       'blue': "#F7FAFF",
       'daybreak-blue': "#1890FF",
       'green': "#F8FEF1",
+      'progress': "#F5F5F5",
+      'progressSuccess': "#52C41A",
       'txt-pink': "#FFF0F6",
       'txt-purple': "#F9F0FF",
       'txt-blue': "#F0F5FF",

@@ -21,7 +21,7 @@ const ListTodos = ({colors, todo, index}) => {
     })
     setModalTask(false)
   }
-
+  
   const handleModalTask = () => {
     setModalTask(!modalTask)
     console.log(todo)
@@ -44,7 +44,7 @@ const ListTodos = ({colors, todo, index}) => {
   return (
     <>
       <div 
-        className="rounded-lg w-full h-auto my-4 p-3 lg:w-64 lg:mr-8"
+        className="rounded-lg w-full h-64 my-4 p-3 lg:w-64 lg:mr-8"
         style={{
           border: colors[index].borderColors, 
           backgroundColor: colors[index].backgroundColors
@@ -69,9 +69,11 @@ const ListTodos = ({colors, todo, index}) => {
               {handleErrorTodo()}
             </span>
           </div>
-          <ListItems />
+          <div className="h-40 overflow-hidden overflow-y-scroll">
+            <ListItems listTask = {listTask}/>
+          </div>
           <div 
-            className="flex flex-row mt-40 cursor-pointer"
+            className="flex flex-row mt-2.5 cursor-pointer w-24"
             onClick={handleModalTask}
           >
             <div className="border-2 border-black rounded-full w-5 h-5 flex">
